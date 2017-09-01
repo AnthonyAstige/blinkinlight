@@ -4,7 +4,8 @@ const lightBaseStyle = {
 	width: '100px',
 	height: '100px',
 	margin: '10px',
-	borderRadius: '50px'
+	borderRadius: '50px',
+	transition: 'opacity .3s'
 }
 const RedLight = props => {
 	const style = Object.assign({}, lightBaseStyle, {
