@@ -10,7 +10,6 @@ module.exports = {
 		browser: true,
 		node: true,
 		jquery: true
-		// meteor: true	// Off for explicit dep; "import { Meteor } = 'meteor/meteor';"
 	},
 
 	globals: {
@@ -18,14 +17,9 @@ module.exports = {
 		YT: true
 	},
 
-	plugins: ['lodash', 'meteor', 'react', 'import'],
+	plugins: ['react', 'import'],
 
-	extends: [
-		'eslint:recommended',
-		'plugin:lodash/recommended',
-		'plugin:meteor/recommended',
-		'plugin:react/recommended'
-	],
+	extends: ['eslint:recommended', 'plugin:react/recommended'],
 
 	parserOptions: {
 		ecmaVersion: 6,
@@ -34,11 +28,6 @@ module.exports = {
 			jsx: true,
 			experimentalObjectRestSpread: true
 		}
-	},
-
-	settings: {
-		// Make sure you have https://www.npmjs.com/package/eslint-import-resolver-meteor
-		'import/resolver': 'meteor'
 	},
 
 	rules: {
@@ -278,31 +267,6 @@ module.exports = {
 		 **/
 		'lodash/prefer-lodash-method': ['off'],
 		//'lodash/prefer-lodash-method': ['warn', { except: ['find'] }],
-
-		/**
-		 * Plugin: meteor (all)
-		 **/
-		/* General*/
-		'meteor/no-zero-timeout': ['error'],
-		/* Session*/
-		'meteor/no-session': ['error'],
-		'meteor/prefer-session-equals': ['off'], // Once no sessions don't need this
-		/* Security*/
-		'meteor/audit-argument-checks': ['error'],
-		/* Blaze*/
-		'meteor/template-names': ['error'],
-		'meteor/no-template-lifecycle-assignments': ['error'],
-		'meteor/eventmap-params': [
-			'error',
-			{
-				eventParamName: 'ev',
-				templateInstanceParamName: 'it'
-			}
-		],
-		'meteor/prefix-eventmap-selectors': ['error', 'js-', 'strict'],
-		'meteor/scope-dom-lookups': ['error'],
-		'meteor/no-dom-lookup-on-created': ['error'],
-		'meteor/no-template-parent-data': ['error'],
 
 		/**
 		 * Plugin: import (all)
