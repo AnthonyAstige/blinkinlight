@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-const brightnessToOpacity = brightness => brightness / 5
-
 const lightBaseStyle = {
 	width: '92px',
 	height: '92px',
@@ -27,6 +25,8 @@ const GreenLight = props => {
 	return <div style={style} />
 }
 
+// TODO: Move brightness state setting out of Lamp component. I don't care to do the callback stuff without having something like Recompose or Redux as wouldn't make code that much cleaner without anyways.
+const brightnessToOpacity = brightness => brightness / 5
 class Lamp extends Component {
 	constructor() {
 		super()
