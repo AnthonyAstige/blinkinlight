@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const brightnessToOpacity = brightness => brightness / 5
 const Light = props => {
@@ -20,7 +20,7 @@ const Light = props => {
  * I don't care to do the callback stuff without having something like Recompose or
  * Redux as wouldn't make code that much cleaner without anyways.
  */
-class Lamp extends Component {
+class Lamp extends React.Component {
 	constructor() {
 		super()
 		this.state = {
