@@ -8,6 +8,7 @@ const lightBaseStyle = {
 	borderRadius: '50px',
 	transition: 'opacity .3s'
 }
+
 const RedLight = props => {
 	const style = Object.assign({}, lightBaseStyle, {
 		backgroundColor: props.color,
