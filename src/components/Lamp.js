@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+const brightnessToOpacity = brightness => brightness / 5
 const Light = props => {
 	const style = {
 		width: '92px',
@@ -14,8 +15,11 @@ const Light = props => {
 	return <div style={style} />
 }
 
-// TODO: Move brightness state setting out of Lamp component. I don't care to do the callback stuff without having something like Recompose or Redux as wouldn't make code that much cleaner without anyways.
-const brightnessToOpacity = brightness => brightness / 5
+/**
+ * TODO: Move brightness state setting out of Lamp component.
+ * I don't care to do the callback stuff without having something like Recompose or
+ * Redux as wouldn't make code that much cleaner without anyways.
+ */
 class Lamp extends Component {
 	constructor() {
 		super()
@@ -50,7 +54,7 @@ class Lamp extends Component {
 				<div style={brightSelectionStyle}>
 					Brightness:
 					{[0, 1, 2, 3, 4, 5].map(brightness =>
-						<div>
+						<div key={brightness}>
 							<input
 								type="radio"
 								id={`brightness${brightness}`}
@@ -58,7 +62,7 @@ class Lamp extends Component {
 								name="brightness"
 								value={brightness}
 								onChange={() => {
-									this.setState((prevState, props) => ({ brightness: brightness }))
+									this.setState(() => ({ brightness }))
 								}}
 							/>
 							<label htmlFor={`brightness${brightness}`}>{brightness}</label>

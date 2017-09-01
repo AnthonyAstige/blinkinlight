@@ -1,4 +1,3 @@
-'use strict'
 // Not in Meteor so this file isn't babelified
 /* eslint-disable import/no-commonjs*/
 
@@ -176,7 +175,7 @@ module.exports = {
 		'linebreak-style': ['error', 'unix'],
 		// 'lines-around-comment': ['error'],	// Terser code style, this rule not for me
 		'max-depth': ['error', { max: 3 }],
-		'max-len': ['error', 100, { ignoreUrls: true }],
+		'max-len': ['error', 110, { ignoreUrls: true }],
 		'max-nested-callbacks': ['error', 3],
 		'max-params': ['error', { max: 4 }],
 		'max-statements': ['error', { max: 15 }],
@@ -266,7 +265,7 @@ module.exports = {
 		 * Plugin: lodash (exceptions as recommended enabled all)
 		 **/
 		'lodash/prefer-lodash-method': ['off'],
-		//'lodash/prefer-lodash-method': ['warn', { except: ['find'] }],
+		// 'lodash/prefer-lodash-method': ['warn', { except: ['find'] }],
 
 		/**
 		 * Plugin: import (all)
@@ -285,7 +284,7 @@ module.exports = {
 		// 'import/no-extraneous-dependencies': ['error'],	// False positive Meteor
 		'import/no-mutable-exports': ['error'],
 		/* Module systems */
-		//'import/no-commonjs': ['error'],
+		// 'import/no-commonjs': ['error'],
 		'import/no-amd': ['error'],
 		// 'import/no-nodejs-modules': ['error'],			// Meteor is server side too
 		/* Style guide */
@@ -295,6 +294,11 @@ module.exports = {
 		'import/extensions': ['error'],
 		// 'import/order': ['error'],						// sorts-imports does this
 		'import/newline-after-import': ['error'],
-		'import/prefer-default-export': ['error']
+		'import/prefer-default-export': ['error'],
+
+		/**
+		 * For this exercise only
+		 */
+		'react/prop-types': ['off']
 	}
 }
