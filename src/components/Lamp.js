@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
+
+const brightnessToOpacity = brightness => brightness / 5
 
 const lightBaseStyle = {
 	width: '92px',
@@ -12,7 +14,7 @@ const lightBaseStyle = {
 const RedLight = props => {
 	const style = Object.assign({}, lightBaseStyle, {
 		backgroundColor: props.color,
-		opacity: props.lit ? 1 : 0.1
+		opacity: props.lit ? brightnessToOpacity(props.brightness) : 0.1
 	})
 	return <div style={style} />
 }
@@ -20,27 +22,71 @@ const RedLight = props => {
 const GreenLight = props => {
 	const style = Object.assign({}, lightBaseStyle, {
 		backgroundColor: props.color,
-		opacity: props.lit ? 1 : 0.1
+		opacity: props.lit ? brightnessToOpacity(props.brightness) : 0.1
 	})
 	return <div style={style} />
 }
 
-const Lamp = props => {
-	const style = {
-		width: '120px',
-		height: '240px',
-		backgroundColor: '#111',
-		borderRadius: '5px',
-		border: '1px solid #999'
+class Lamp extends Component {
+	constructor() {
+		super()
+		this.state = {
+			brightness: 3
+		}
 	}
-	const greenColor = '#27e833'
 
-	return (
-		<div style={style}>
-			<GreenLight lit={!props.lit} color={greenColor} />
-			<RedLight lit={props.lit} color={props.color} />
-		</div>
-	)
+	render() {
+		const props = this.props
+
+		const containerStyle = {
+			width: '120px',
+			height: '240px',
+			backgroundColor: '#111',
+			borderRadius: '5px',
+			border: '1px solid #999'
+		}
+
+		const brightSelectionStyle = {
+			marginTop: '30px',
+			width: '100%',
+			clear: 'both'
+		}
+
+		const greenColor = '#27e833'
+
+		return (
+			<div style={containerStyle}>
+				<GreenLight
+					brightness={this.state.brightness}
+					lit={!props.lit}
+					color={greenColor}
+				/>
+				<RedLight
+					brightness={this.state.brightness}
+					lit={props.lit}
+					color={props.color}
+				/>
+				<div style={brightSelectionStyle}>
+					Brightness:
+					{[0, 1, 2, 3, 4, 5].map(brightness =>
+						<div>
+							<input
+								type="radio"
+								id={`brightness${brightness}`}
+								checked={brightness === this.state.brightness}
+								name="brightness"
+								value={brightness}
+								onChange={() => {
+									this.setState((prevState, props) => ({ brightness: brightness }))
+								}}
+							/>
+							<label htmlFor={`brightness${brightness}`}>{brightness}</label>
+						</div>
+					)}
+				</div>
+			</div>
+		)
+	}
 }
 
 export default Lamp
