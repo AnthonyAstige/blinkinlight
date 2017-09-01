@@ -9,15 +9,7 @@ const lightBaseStyle = {
 	transition: 'opacity .3s'
 }
 
-const RedLight = props => {
-	const style = Object.assign({}, lightBaseStyle, {
-		backgroundColor: props.color,
-		opacity: props.lit ? brightnessToOpacity(props.brightness) : 0.1
-	})
-	return <div style={style} />
-}
-
-const GreenLight = props => {
+const Light = props => {
 	const style = Object.assign({}, lightBaseStyle, {
 		backgroundColor: props.color,
 		opacity: props.lit ? brightnessToOpacity(props.brightness) : 0.1
@@ -56,16 +48,8 @@ class Lamp extends Component {
 
 		return (
 			<div style={containerStyle}>
-				<GreenLight
-					brightness={this.state.brightness}
-					lit={!props.lit}
-					color={greenColor}
-				/>
-				<RedLight
-					brightness={this.state.brightness}
-					lit={props.lit}
-					color={props.color}
-				/>
+				<Light brightness={this.state.brightness} lit={!props.lit} color={greenColor} />
+				<Light brightness={this.state.brightness} lit={props.lit} color={props.color} />
 				<div style={brightSelectionStyle}>
 					Brightness:
 					{[0, 1, 2, 3, 4, 5].map(brightness =>
