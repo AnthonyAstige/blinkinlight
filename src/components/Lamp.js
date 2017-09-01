@@ -1,9 +1,10 @@
 import React from 'react'
 
 const lightBaseStyle = {
-	width: '100px',
-	height: '100px',
+	width: '92px',
+	height: '92px',
 	margin: '10px',
+	border: '4px solid #333',
 	borderRadius: '50px',
 	transition: 'opacity .3s'
 }
@@ -27,8 +28,9 @@ const Lamp = props => {
 	const style = {
 		width: '120px',
 		height: '240px',
+		backgroundColor: '#111',
 		borderRadius: '5px',
-		border: '1px solid #666'
+		border: '1px solid #999'
 	}
 	const greenColor = '#27e833'
 
