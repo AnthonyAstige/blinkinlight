@@ -31,7 +31,7 @@ class Lamp extends React.Component {
 	render() {
 		const props = this.props
 
-		const containerStyle = {
+		const lightContainerStyle = {
 			width: '120px',
 			height: '240px',
 			backgroundColor: '#111',
@@ -40,17 +40,17 @@ class Lamp extends React.Component {
 		}
 
 		const brightSelectionStyle = {
-			marginTop: '30px',
-			width: '100%',
-			clear: 'both'
+			marginTop: '20px'
 		}
 
 		const greenColor = '#27e833'
 
 		return (
-			<div style={containerStyle}>
-				<Light brightness={this.state.brightness} lit={!props.lit} color={greenColor} />
-				<Light brightness={this.state.brightness} lit={props.lit} color={props.color} />
+			<div>
+				<div style={lightContainerStyle}>
+					<Light brightness={this.state.brightness} lit={!props.lit} color={greenColor} />
+					<Light brightness={this.state.brightness} lit={props.lit} color={props.color} />
+				</div>
 				<div style={brightSelectionStyle}>
 					Brightness:
 					{[0, 1, 2, 3, 4, 5].map(brightness =>
