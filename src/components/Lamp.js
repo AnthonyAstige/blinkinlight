@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 
-const lightBaseStyle = {
-	width: '92px',
-	height: '92px',
-	margin: '10px',
-	border: '4px solid #333',
-	borderRadius: '50px',
-	transition: 'opacity .3s'
-}
-
 const Light = props => {
-	const style = Object.assign({}, lightBaseStyle, {
+	const style = {
+		width: '92px',
+		height: '92px',
+		margin: '10px',
+		border: '4px solid #333',
+		borderRadius: '50px',
+		transition: 'opacity .3s',
 		backgroundColor: props.color,
 		opacity: props.lit ? brightnessToOpacity(props.brightness) : 0.1
-	})
+	}
 	return <div style={style} />
 }
 
