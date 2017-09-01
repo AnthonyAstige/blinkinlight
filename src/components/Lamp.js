@@ -40,7 +40,15 @@ class Lamp extends React.Component {
 		}
 
 		const brightSelectionStyle = {
+			fontSize: '40px',
 			marginTop: '20px'
+		}
+
+		const radioStyle = {
+			width: '30px',
+			height: '30px',
+			marginTop: '20px',
+			marginRight: '8px'
 		}
 
 		const greenColor = '#27e833'
@@ -52,10 +60,11 @@ class Lamp extends React.Component {
 					<Light brightness={this.state.brightness} lit={props.lit} color={props.color} />
 				</div>
 				<div style={brightSelectionStyle}>
-					Brightness:
+					Brightness level
 					{[0, 1, 2, 3, 4, 5].map(brightness =>
 						<div key={brightness}>
 							<input
+								style={radioStyle}
 								type="radio"
 								id={`brightness${brightness}`}
 								checked={brightness === this.state.brightness}
