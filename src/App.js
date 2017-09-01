@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import Lamp from './components/Lamp.js'
 
 class App extends Component {
 	render() {
-		return <div>Less is more</div>
+		return <Lamp color="red" lit="true" />
 	}
 }
 
